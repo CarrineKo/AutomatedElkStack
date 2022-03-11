@@ -48,7 +48,7 @@ Only the Jump Box machine can accept connections from the Internet. Access to th
 70.44.56.93
 
 Machines within the network can only be accessed by Jump Box. Jump Box is the only machine that has access to ELK VM. Jump Box has a public IP of 20.127.109.75 and Private IP of 10.0.0.4. 
-ELK VM has a public IP of 23.99.9.171 and private of 10.1.0.4.
+ELK VM has a private IP of 10.1.0.4.
 
 A summary of the access policies in place can be found in the table below.
 
