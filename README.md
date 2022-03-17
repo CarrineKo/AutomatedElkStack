@@ -89,6 +89,9 @@ This ELK server is configured to monitor the following machines:
 We have installed the following Beats on these machines:
 	-Filebeat
 	-Metricbeat
+	
+See screenshot of host file showing webservers, elk, and FBServers:
+https://github.com/CarrineKo/AutomatedElkStack/blob/Screenshots/Ansible
 
 These Beats allow us to collect the following information from each machine:
 - Filebeat monitors log files and records log events to ship them to the ELK stack for analysis. and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
@@ -117,6 +120,9 @@ SSH into the control node and follow the steps below:
 - Run the playbook, and navigate to Kibana to check that the installation worked as expected.
 
 		http://[your.VM.IP]:5601/app/kibana. 
+		
+https://github.com/CarrineKo/AutomatedElkStack/blob/Screenshots/Verify
+https://github.com/CarrineKo/AutomatedElkStack/blob/Screenshots/Verify
 
 ##CHECKLIST
 - filebeat-playbook.yml is the playbook and it gets copied to /etc/ansible/roles/filebeat-playbook.yml
@@ -138,6 +144,8 @@ SSH into the control node and follow the steps below:
 		
 - In order to check that the ELK server is running, navigate to:
 	- http://[your.VM.IP]:5601/app/kibana
+
+https://github.com/CarrineKo/AutomatedElkStack/blob/Screenshots/Day
 
 
 _##**Bonus Commands**
@@ -164,7 +172,9 @@ _##**Bonus Commands**
 	
 - Edit hosts file:
 	
-	- nano /etc/ansible/hosts	
+	- nano /etc/ansible/hosts
+
+https://github.com/CarrineKo/AutomatedElkStack/blob/Screenshots/Ansible
 
 - Edit configuration files:
 		
