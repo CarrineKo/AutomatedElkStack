@@ -85,8 +85,9 @@ https://github.com/CarrineKo/AutomatedElkStack/blob/Screenshots/761%20Tag.PNG
 This ELK server is configured to monitor the following machines:
 	-10.0.0.5 
 	-10.0.0.6
-	
 
+See screenshot of hostfile here:	
+https://github.com/CarrineKo/AutomatedElkStack/blob/Screenshots/Ansible%20Host%20Configuration%20Showing%20Filebeat.PNG
 
 We have installed the following Beats on these machines:
 	-Filebeat
