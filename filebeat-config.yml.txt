@@ -1,0 +1,2056 @@
+  1 ######################## Filebeat Configuration ############################
+   2 # This file is a full configuration example documenting all non-deprecated
+   3 # options in comments. For a shorter configuration example, that contains only
+   4 # the most common options, please see filebeat.yml in the same directory.
+   5 #
+   6 # You can find the full configuration reference here:
+   7 # https://www.elastic.co/guide/en/beats/filebeat/index.html
+   8 filebeat.config.modules:
+   9   path: ${path.config}/modules.d/*.yml
+  10
+  11 #==========================  Modules configuration =============================
+  12 filebeat.modules:
+  13
+  14 #-------------------------------- System Module --------------------------------
+  15 #- module: system
+  16   # Syslog
+  17   #syslog:
+  18     #enabled: true
+  19
+  20     # Set custom paths for the log files. If left empty,
+  21     # Filebeat will choose the paths depending on your OS.
+  22     #var.paths:
+  23
+  24     # Input configuration (advanced). Any input configuration option
+  25     # can be added under this section.
+  26     #input:
+  27
+  28   # Authorization logs
+  29   #auth:
+  30     #enabled: true
+  31
+  32     # Set custom paths for the log files. If left empty,
+  33     # Filebeat will choose the paths depending on your OS.
+  34     #var.paths:
+  35
+  36     # Input configuration (advanced). Any input configuration option
+  37     # can be added under this section.
+  38     #input:
+  39
+  40 #-------------------------------- Apache Module --------------------------------
+  41 #- module: apache
+  42   # Access logs
+ 43   #access:
+  44     #enabled: true
+  45
+  46     # Set custom paths for the log files. If left empty,
+  47     # Filebeat will choose the paths depending on your OS.
+  48     #var.paths:
+  49
+  50     # Input configuration (advanced). Any input configuration option
+  51     # can be added under this section.
+  52     #input:
+  53
+  54   # Error logs
+  55   #error:
+  56     #enabled: true
+  57
+  58     # Set custom paths for the log files. If left empty,
+  59     # Filebeat will choose the paths depending on your OS.
+  60     #var.paths:
+  61
+  62     # Input configuration (advanced). Any input configuration option
+  63     # can be added under this section.
+  64     #input:
+  65 #-------------------------------- Auditd Module --------------------------------
+  66 #- module: auditd
+  67   #log:
+  68     #enabled: true
+  69
+  70     # Set custom paths for the log files. If left empty,
+  71     # Filebeat will choose the paths depending on your OS.
+  72     #var.paths:
+  73
+  74     # Input configuration (advanced). Any input configuration option
+  75     # can be added under this section.
+  76     #input:
+  77
+  78 #---------------------------- Elasticsearch Module ----------------------------
+  79 - module: elasticsearch
+  80   # Server log
+  81   server:
+  82     enabled: true
+  83
+  84     # Set custom paths for the log files. If left empty,
+ 85     # Filebeat will choose the paths depending on your OS.
+  86     #var.paths:
+  87
+  88   gc:
+  89     enabled: true
+  90     # Set custom paths for the log files. If left empty,
+  91     # Filebeat will choose the paths depending on your OS.
+  92     #var.paths:
+  93
+  94   audit:
+  95     enabled: true
+  96     # Set custom paths for the log files. If left empty,
+  97     # Filebeat will choose the paths depending on your OS.
+  98     #var.paths:
+  99
+ 100   slowlog:
+ 101     enabled: true
+ 102     # Set custom paths for the log files. If left empty,
+ 103     # Filebeat will choose the paths depending on your OS.
+ 104     #var.paths:
+ 105
+ 106   deprecation:
+ 107     enabled: true
+ 108     # Set custom paths for the log files. If left empty,
+ 109     # Filebeat will choose the paths depending on your OS.
+ 110     #var.paths:
+ 111
+ 112 #------------------------------- Haproxy Module -------------------------------
+ 113 - module: haproxy
+ 114   # All logs
+ 115   log:
+ 116     enabled: true
+ 117
+ 118     # Set which input to use between syslog (default) or file.
+ 119     #var.input:
+ 120
+ 121     # Set custom paths for the log files. If left empty,
+ 122     # Filebeat will choose the paths depending on your OS.
+ 123     #var.paths:
+ 124
+ 125 #-------------------------------- Icinga Module --------------------------------
+ 126 #- module: icinga
+ 127   # Main logs
+ 128   #main:
+ 129     #enabled: true
+ 130
+ 131     # Set custom paths for the log files. If left empty,
+ 132     # Filebeat will choose the paths depending on your OS.
+ 133     #var.paths:
+ 134
+ 135     # Input configuration (advanced). Any input configuration option
+ 136     # can be added under this section.
+ 137     #input:
+ 138
+ 139   # Debug logs
+ 140   #debug:
+ 141     #enabled: true
+ 142
+ 143     # Set custom paths for the log files. If left empty,
+ 144     # Filebeat will choose the paths depending on your OS.
+ 145     #var.paths:
+ 146
+ 147     # Input configuration (advanced). Any input configuration option
+ 148     # can be added under this section.
+ 149     #input:
+ 150
+ 151   # Startup logs
+ 152   #startup:
+ 153     #enabled: true
+ 154
+ 155     # Set custom paths for the log files. If left empty,
+ 156     # Filebeat will choose the paths depending on your OS.
+ 157     #var.paths:
+ 158
+ 159     # Input configuration (advanced). Any input configuration option
+ 160     # can be added under this section.
+ 161     #input:
+ 162
+ 163 #--------------------------------- IIS Module ---------------------------------
+ 164 #- module: iis
+ 165   # Access logs
+ 166   #access:
+ 167     #enabled: true
+ 168
+ 169     # Set custom paths for the log files. If left empty,
+ 170     # Filebeat will choose the paths depending on your OS.
+ 171     #var.paths:
+ 172
+ 173     # Input configuration (advanced). Any input configuration option
+ 174     # can be added under this section.
+ 175     #input:
+ 176
+ 177   # Error logs
+ 178   #error:
+ 179     #enabled: true
+ 180
+ 181     # Set custom paths for the log files. If left empty,
+ 182     # Filebeat will choose the paths depending on your OS.
+ 183     #var.paths:
+ 184
+ 185     # Input configuration (advanced). Any input configuration option
+ 186     # can be added under this section.
+ 187     #input:
+ 188
+ 189 #-------------------------------- Kafka Module --------------------------------
+ 190 - module: kafka
+ 191   # All logs
+ 192   log:
+ 193     enabled: true
+ 194
+ 195     # Set custom paths for Kafka. If left empty,
+ 196     # Filebeat will look under /opt.
+ 197     #var.kafka_home:
+ 198
+ 199     # Set custom paths for the log files. If left empty,
+ 200     # Filebeat will choose the paths depending on your OS.
+ 201     #var.paths:
+ 202
+ 203 #-------------------------------- Kibana Module --------------------------------
+ 204 - module: kibana
+ 205   # All logs
+ 206   log:
+ 207     enabled: true
+ 208
+ 209     # Set custom paths for the log files. If left empty,
+ 210     # Filebeat will choose the paths depending on your OS.
+ 211     #var.paths:
+ 212
+ 213 #------------------------------- Logstash Module -------------------------------
+ 214 #- module: logstash
+ 215   # logs
+ 216   #log:
+ 217     #enabled: true
+ 218
+ 219     # Set custom paths for the log files. If left empty,
+ 220     # Filebeat will choose the paths depending on your OS.
+ 221     # var.paths:
+ 222
+ 223   # Slow logs
+ 224   #slowlog:
+ 225     #enabled: true
+ 226     # Set custom paths for the log files. If left empty,
+ 227     # Filebeat will choose the paths depending on your OS.
+ 228     #var.paths:
+ 229
+ 230 #------------------------------- Mongodb Module -------------------------------
+ 231 #- module: mongodb
+ 232   # Logs
+ 233   #log:
+ 234     #enabled: true
+ 235
+ 236     # Set custom paths for the log files. If left empty,
+ 237     # Filebeat will choose the paths depending on your OS.
+ 238     #var.paths:
+ 239
+ 240     # Input configuration (advanced). Any input configuration option
+ 241     # can be added under this section.
+ 242     #input:
+ 243
+ 244 #-------------------------------- MySQL Module --------------------------------
+ 245 #- module: mysql
+ 246   # Error logs
+ 247   #error:
+ 248     #enabled: true
+ 249
+ 250     # Set custom paths for the log files. If left empty,
+ 251     # Filebeat will choose the paths depending on your OS.
+ 252     #var.paths:
+ 253
+ 254     # Input configuration (advanced). Any input configuration option
+ 255     # can be added under this section.
+ 256     #input:
+ 257
+ 258   # Slow logs
+ 259   #slowlog:
+ 260     #enabled: true
+ 261
+ 262     # Set custom paths for the log files. If left empty,
+ 263     # Filebeat will choose the paths depending on your OS.
+ 264     #var.paths:
+ 265
+ 266     # Input configuration (advanced). Any input configuration option
+ 267     # can be added under this section.
+ 268     #input:
+ 269
+ 270 #--------------------------------- Nats Module ---------------------------------
+ 271 - module: nats
+ 272   # All logs
+ 273   log:
+ 274     enabled: true
+ 275
+ 276     # Set custom paths for the log files. If left empty,
+ 277     # Filebeat will choose the paths depending on your OS.
+ 278     #var.paths:
+ 279
+ 280 #-------------------------------- Nginx Module --------------------------------
+ 281 #- module: nginx
+ 282   # Access logs
+ 283   #access:
+ 284     #enabled: true
+ 285
+ 286     # Set custom paths for the log files. If left empty,
+ 287     # Filebeat will choose the paths depending on your OS.
+ 288     #var.paths:
+ 289
+ 290     # Input configuration (advanced). Any input configuration option
+ 291     # can be added under this section.
+ 292     #input:
+ 293
+ 294   # Error logs
+ 295   #error:
+ 296     #enabled: true
+ 297
+ 298     # Set custom paths for the log files. If left empty,
+ 299     # Filebeat will choose the paths depending on your OS.
+ 300     #var.paths:
+ 301
+ 302     # Input configuration (advanced). Any input configuration option
+ 303     # can be added under this section.
+ 304     #input:
+ 305
+ 306 #------------------------------- Osquery Module -------------------------------
+ 307 - module: osquery
+ 308   result:
+ 309     enabled: true
+ 310
+ 311     # Set custom paths for the log files. If left empty,
+ 312     # Filebeat will choose the paths depending on your OS.
+ 313     #var.paths:
+ 314
+ 315     # If true, all fields created by this module are prefixed with
+ 316     # `osquery.result`. Set to false to copy the fields in the root
+ 317     # of the document. The default is true.
+ 318     #var.use_namespace: true
+ 319
+ 320 #------------------------------ PostgreSQL Module ------------------------------
+ 321 #- module: postgresql
+ 322   # Logs
+ 323   #log:
+ 324     #enabled: true
+ 325
+ 326     # Set custom paths for the log files. If left empty,
+ 327     # Filebeat will choose the paths depending on your OS.
+ 328     #var.paths:
+ 329
+ 330     # Input configuration (advanced). Any input configuration option
+ 331     # can be added under this section.
+ 332     #input:
+ 333
+ 334 #-------------------------------- Redis Module --------------------------------
+ 335 #- module: redis
+ 336   # Main logs
+ 337   #log:
+ 338     #enabled: true
+ 339
+ 340     # Set custom paths for the log files. If left empty,
+ 341     # Filebeat will choose the paths depending on your OS.
+ 342     #var.paths: ["/var/log/redis/redis-server.log*"]
+ 343
+ 344   # Slow logs, retrieved via the Redis API (SLOWLOG)
+ 345   #slowlog:
+ 346     #enabled: true
+ 347
+ 348     # The Redis hosts to connect to.
+ 349     #var.hosts: ["localhost:6379"]
+ 350
+ 351     # Optional, the password to use when connecting to Redis.
+ 352     #var.password:
+ 353
+ 354 #----------------------------- Google Santa Module -----------------------------
+ 355 - module: santa
+ 356   log:
+ 357     enabled: true
+ 358     # Set custom paths for the log files. If left empty,
+ 359     # Filebeat will choose the the default path.
+ 360     #var.paths:
+ 361
+ 362 #------------------------------- Traefik Module -------------------------------
+ 363 #- module: traefik
+ 364   # Access logs
+ 365   #access:
+ 366     #enabled: true
+ 367
+ 368     # Set custom paths for the log files. If left empty,
+ 369     # Filebeat will choose the paths depending on your OS.
+ 370     #var.paths:
+ 371
+ 372     # Input configuration (advanced). Any input configuration option
+ 373     # can be added under this section.
+ 374     #input:
+ 375
+ 376
+ 377 #=========================== Filebeat inputs =============================
+ 378
+ 379 # List of inputs to fetch data.
+ 380 filebeat.inputs:
+ 381 # Each - is an input. Most options can be set at the input level, so
+ 382 # you can use different inputs for various configurations.
+ 383 # Below are the input specific configurations.
+ 384
+ 385 # Type of the files. Based on this the way the file is read is decided.
+ 386 # The different types cannot be mixed in one input
+ 387 #
+ 388 # Possible options are:
+ 389 # * log: Reads every line of the log file (default)
+ 390 # * stdin: Reads the standard in
+ 391
+ 392 #------------------------------ Log input --------------------------------
+ 393 - type: log
+ 394
+ 395   # Change to true to enable this input configuration.
+ 396   enabled: false
+ 397
+ 398   # Paths that should be crawled and fetched. Glob based paths.
+ 399   # To fetch all ".log" files from a specific level of subdirectories
+ 400   # /var/log/*/*.log can be used.
+ 401   # For each file found under this path, a harvester is started.
+ 402   # Make sure not file is defined twice as this can lead to unexpected behaviour.
+ 403   paths:
+ 404     - /var/log/*.log
+ 405     #- c:\programdata\elasticsearch\logs\*
+ 406
+ 407   # Configure the file encoding for reading files with international characters
+ 408   # following the W3C recommendation for HTML5 (http://www.w3.org/TR/encoding).
+ 409   # Some sample encodings:
+ 410   #   plain, utf-8, utf-16be-bom, utf-16be, utf-16le, big5, gb18030, gbk,
+ 411   #    hz-gb-2312, euc-kr, euc-jp, iso-2022-jp, shift-jis, ...
+ 412   #encoding: plain
+ 413
+ 414
+ 415   # Exclude lines. A list of regular expressions to match. It drops the lines that are
+ 416   # matching any regular expression from the list. The include_lines is called before
+ 417   # exclude_lines. By default, no lines are dropped.
+ 418   #exclude_lines: ['^DBG']
+ 419
+ 420   # Include lines. A list of regular expressions to match. It exports the lines that are
+ 421   # matching any regular expression from the list. The include_lines is called before
+ 422   # exclude_lines. By default, all the lines are exported.
+ 423   #include_lines: ['^ERR', '^WARN']
+ 424
+ 425   # Exclude files. A list of regular expressions to match. Filebeat drops the files that
+ 426   # are matching any regular expression from the list. By default, no files are dropped.
+ 427   #exclude_files: ['.gz$']
+ 428
+ 429   # Optional additional fields. These fields can be freely picked
+ 430   # to add additional information to the crawled log files for filtering
+ 431   #fields:
+ 432   #  level: debug
+ 433   #  review: 1
+ 434
+ 435   # Set to true to store the additional fields as top level fields instead
+ 436   # of under the "fields" sub-dictionary. In case of name conflicts with the
+ 437   # fields added by Filebeat itself, the custom fields overwrite the default
+ 438   # fields.
+ 439   #fields_under_root: false
+ 440
+ 441   # Set to true to publish fields with null values in events.
+ 442   #keep_null: false
+ 443
+ 444   # Ignore files which were modified more then the defined timespan in the past.
+ 445   # ignore_older is disabled by default, so no files are ignored by setting it to 0.
+ 446   # Time strings like 2h (2 hours), 5m (5 minutes) can be used.
+ 447   #ignore_older: 0
+ 448
+ 449   # How often the input checks for new files in the paths that are specified
+ 450   # for harvesting. Specify 1s to scan the directory as frequently as possible
+ 451   # without causing Filebeat to scan too frequently. Default: 10s.
+ 452   #scan_frequency: 10s
+ 453
+ 454   # Defines the buffer size every harvester uses when fetching the file
+ 455   #harvester_buffer_size: 16384
+ 456
+ 457   # Maximum number of bytes a single log event can have
+ 458   # All bytes after max_bytes are discarded and not sent. The default is 10MB.
+ 459   # This is especially useful for multiline log messages which can get large.
+ 460   #max_bytes: 10485760
+ 461
+ 462   # Characters which separate the lines. Valid values: auto, line_feed, vertical_tab, form_feed,
+ 421   # matching any regular expression from the list. The include_lines is called before
+ 422   # exclude_lines. By default, all the lines are exported.
+ 423   #include_lines: ['^ERR', '^WARN']
+ 424
+ 425   # Exclude files. A list of regular expressions to match. Filebeat drops the files that
+ 426   # are matching any regular expression from the list. By default, no files are dropped.
+ 427   #exclude_files: ['.gz$']
+ 428
+ 429   # Optional additional fields. These fields can be freely picked
+ 430   # to add additional information to the crawled log files for filtering
+ 431   #fields:
+ 432   #  level: debug
+ 433   #  review: 1
+ 434
+ 435   # Set to true to store the additional fields as top level fields instead
+ 436   # of under the "fields" sub-dictionary. In case of name conflicts with the
+ 437   # fields added by Filebeat itself, the custom fields overwrite the default
+ 438   # fields.
+ 439   #fields_under_root: false
+ 440
+ 441   # Set to true to publish fields with null values in events.
+ 442   #keep_null: false
+ 443
+ 444   # Ignore files which were modified more then the defined timespan in the past.
+ 445   # ignore_older is disabled by default, so no files are ignored by setting it to 0.
+ 446   # Time strings like 2h (2 hours), 5m (5 minutes) can be used.
+ 447   #ignore_older: 0
+ 448
+ 449   # How often the input checks for new files in the paths that are specified
+ 450   # for harvesting. Specify 1s to scan the directory as frequently as possible
+ 451   # without causing Filebeat to scan too frequently. Default: 10s.
+ 452   #scan_frequency: 10s
+ 453
+ 454   # Defines the buffer size every harvester uses when fetching the file
+ 455   #harvester_buffer_size: 16384
+ 456
+ 457   # Maximum number of bytes a single log event can have
+ 458   # All bytes after max_bytes are discarded and not sent. The default is 10MB.
+ 459   # This is especially useful for multiline log messages which can get large.
+ 460   #max_bytes: 10485760
+ 461
+ 462   # Characters which separate the lines. Valid values: auto, line_feed, vertical_tab, form_feed,
+ 463   # carriage_return, carriage_return_line_feed, next_line, line_separator, paragraph_separator.
+ 464   #line_terminator: auto
+ 465
+ 466   ### Recursive glob configuration
+ 467
+ 468   # Expand "**" patterns into regular glob patterns.
+ 469   #recursive_glob.enabled: true
+ 470
+ 471   ### JSON configuration
+ 472
+ 473   # Decode JSON options. Enable this if your logs are structured in JSON.
+ 474   # JSON key on which to apply the line filtering and multiline settings. This key
+ 475   # must be top level and its value must be string, otherwise it is ignored. If
+ 476   # no text key is defined, the line filtering and multiline features cannot be used.
+ 477   #json.message_key:
+ 478
+ 479   # By default, the decoded JSON is placed under a "json" key in the output document.
+ 480   # If you enable this setting, the keys are copied top level in the output document.
+ 481   #json.keys_under_root: false
+ 482
+ 483   # If keys_under_root and this setting are enabled, then the values from the decoded
+ 484   # JSON object overwrite the fields that Filebeat normally adds (type, source, offset, etc.)
+ 485   # in case of conflicts.
+ 486   #json.overwrite_keys: false
+ 487
+ 488   # If this setting is enabled, Filebeat adds a "error.message" and "error.key: json" key in case of JSON
+ 489   # unmarshaling errors or when a text key is defined in the configuration but cannot
+ 490   # be used.
+ 491   #json.add_error_key: false
+ 492
+ 493   ### Multiline options
+ 494
+ 495   # Multiline can be used for log messages spanning multiple lines. This is common
+ 496   # for Java Stack Traces or C-Line Continuation
+ 497
+ 498   # The regexp Pattern that has to be matched. The example pattern matches all lines starting with [
+ 499   #multiline.pattern: ^\[
+ 500
+ 501   # Defines if the pattern set under pattern should be negated or not. Default is false.
+ 502   #multiline.negate: false
+ 503
+ 504   # Match can be set to "after" or "before". It is used to define if lines should be append to a pattern
+ 505   # that was (not) matched before or after or as long as a pattern is not matched based on negate.
+ 506   # Note: After is the equivalent to previous and before is the equivalent to to next in Logstash
+ 507   #multiline.match: after
+ 508
+ 509   # The maximum number of lines that are combined to one event.
+ 510   # In case there are more the max_lines the additional lines are discarded.
+ 511   # Default is 500
+ 512   #multiline.max_lines: 500
+ 513
+ 514   # After the defined timeout, an multiline event is sent even if no new pattern was found to start a new event
+ 515   # Default is 5s.
+ 516   #multiline.timeout: 5s
+ 517
+ 518   # Setting tail_files to true means filebeat starts reading new files at the end
+ 519   # instead of the beginning. If this is used in combination with log rotation
+ 520   # this can mean that the first entries of a new file are skipped.
+ 521   #tail_files: false
+ 522
+ 523   # The Ingest Node pipeline ID associated with this input. If this is set, it
+ 524   # overwrites the pipeline option from the Elasticsearch output.
+ 525   #pipeline:
+ 526
+ 527   # If symlinks is enabled, symlinks are opened and harvested. The harvester is opening the
+ 528   # original for harvesting but will report the symlink name as source.
+ 529   #symlinks: false
+ 530
+ 531   # Backoff values define how aggressively filebeat crawls new files for updates
+ 532   # The default values can be used in most cases. Backoff defines how long it is waited
+ 533   # to check a file again after EOF is reached. Default is 1s which means the file
+ 534   # is checked every second if new lines were added. This leads to a near real time crawling.
+ 535   # Every time a new line appears, backoff is reset to the initial value.
+ 536   #backoff: 1s
+ 537
+ 538   # Max backoff defines what the maximum backoff time is. After having backed off multiple times
+ 539   # from checking the files, the waiting time will never exceed max_backoff independent of the
+ 540   # backoff factor. Having it set to 10s means in the worst case a new line can be added to a log
+ 541   # file after having backed off multiple times, it takes a maximum of 10s to read the new line
+ 542   #max_backoff: 10s
+ 543
+ 544   # The backoff factor defines how fast the algorithm backs off. The bigger the backoff factor,
+ 545   # the faster the max_backoff value is reached. If this value is set to 1, no backoff will happen.
+ 546   # The backoff value will be multiplied each time with the backoff_factor until max_backoff is reached
+ 547   #backoff_factor: 2
+ 548
+ 549   # Max number of harvesters that are started in parallel.
+ 550   # Default is 0 which means unlimited
+ 551   #harvester_limit: 0
+ 552
+ 553   ### Harvester closing options
+ 554
+ 555   # Close inactive closes the file handler after the predefined period.
+ 556   # The period starts when the last line of the file was, not the file ModTime.
+ 557   # Time strings like 2h (2 hours), 5m (5 minutes) can be used.
+ 558   #close_inactive: 5m
+ 559
+ 560   # Close renamed closes a file handler when the file is renamed or rotated.
+ 561   # Note: Potential data loss. Make sure to read and understand the docs for this option.
+ 562   #close_renamed: false
+ 563
+ 564   # When enabling this option, a file handler is closed immediately in case a file can't be found
+ 565   # any more. In case the file shows up again later, harvesting will continue at the last known position
+ 566   # after scan_frequency.
+ 567   #close_removed: true
+ 568
+ 569   # Closes the file handler as soon as the harvesters reaches the end of the file.
+ 570   # By default this option is disabled.
+ 571   # Note: Potential data loss. Make sure to read and understand the docs for this option.
+ 572   #close_eof: false
+ 573
+ 574   ### State options
+ 575
+ 576   # Files for the modification data is older then clean_inactive the state from the registry is removed
+ 577   # By default this is disabled.
+ 578   #clean_inactive: 0
+ 579
+ 580   # Removes the state for file which cannot be found on disk anymore immediately
+ 581   #clean_removed: true
+ 582
+ 583   # Close timeout closes the harvester after the predefined time.
+ 584   # This is independent if the harvester did finish reading the file or not.
+ 585   # By default this option is disabled.
+ 586   # Note: Potential data loss. Make sure to read and understand the docs for this option.
+ 587   #close_timeout: 0
+ 588
+ 589   # Defines if inputs is enabled
+ 590   #enabled: true
+ 591
+ 592 #----------------------------- Stdin input -------------------------------
+ 593 # Configuration to use stdin input
+ 594 #- type: stdin
+ 595
+ 596 #------------------------- Redis slowlog input ---------------------------
+ 597 # Experimental: Config options for the redis slow log input
+ 598 #- type: redis
+ 599   #enabled: false
+ 600
+ 601   # List of hosts to pool to retrieve the slow log information.
+ 602   #hosts: ["localhost:6379"]
+ 603
+ 604   # How often the input checks for redis slow log.
+ 605   #scan_frequency: 10s
+ 606
+ 607   # Timeout after which time the input should return an error
+ 608   #timeout: 1s
+ 609
+ 610   # Network type to be used for redis connection. Default: tcp
+ 611   #network: tcp
+ 612
+ 613   # Max number of concurrent connections. Default: 10
+ 614   #maxconn: 10
+ 615
+ 616   # Redis AUTH password. Empty by default.
+ 617   #password: foobared
+ 618
+ 619 #------------------------------ Udp input --------------------------------
+ 620 # Experimental: Config options for the udp input
+ 621 #- type: udp
+ 622   #enabled: false
+ 623
+ 624   # Maximum size of the message received over UDP
+ 625   #max_message_size: 10KiB
+ 626
+ 627   # Size of the UDP read buffer in bytes
+ 628   #read_buffer: 0
+ 629
+ 630
+ 631 #------------------------------ TCP input --------------------------------
+ 632 # Experimental: Config options for the TCP input
+ 633 #- type: tcp
+ 634   #enabled: false
+ 635
+ 636   # The host and port to receive the new event
+ 637   #host: "localhost:9000"
+ 638
+ 639   # Character used to split new message
+ 640   #line_delimiter: "\n"
+ 641
+ 642   # Maximum size in bytes of the message received over TCP
+ 643   #max_message_size: 20MiB
+ 644
+ 645   # Max number of concurrent connections, or 0 for no limit. Default: 0
+ 646   #max_connections: 0
+ 647
+ 648   # The number of seconds of inactivity before a remote connection is closed.
+ 649   #timeout: 300s
+ 650
+ 651   # Use SSL settings for TCP.
+ 652   #ssl.enabled: true
+ 653
+ 654   # List of supported/valid TLS versions. By default all TLS versions 1.0 up to
+ 655   # 1.2 are enabled.
+ 656   #ssl.supported_protocols: [TLSv1.0, TLSv1.1, TLSv1.2]
+ 657
+ 658   # SSL configuration. By default is off.
+ 659   # List of root certificates for client verifications
+ 660   #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
+ 661
+ 662   # Certificate for SSL server authentication.
+ 663   #ssl.certificate: "/etc/pki/client/cert.pem"
+ 664
+ 665   # Server Certificate Key,
+ 666   #ssl.key: "/etc/pki/client/cert.key"
+ 667
+ 668   # Optional passphrase for decrypting the Certificate Key.
+ 669   #ssl.key_passphrase: ''
+ 670
+ 671   # Configure cipher suites to be used for SSL connections.
+ 672   #ssl.cipher_suites: []
+ 673
+ 674   # Configure curve types for ECDHE based cipher suites.
+ 675   #ssl.curve_types: []
+ 676
+ 677   # Configure what types of client authentication are supported. Valid options
+ 678   # are `none`, `optional`, and `required`. When `certificate_authorities` is set it will
+ 679   # default to `required` otherwise it will be set to `none`.
+ 680   #ssl.client_authentication: "required"
+ 681
+ 682 #------------------------------ Syslog input --------------------------------
+ 683 # Experimental: Config options for the Syslog input
+ 684 # Accept RFC3164 formatted syslog event via UDP.
+ 685 #- type: syslog
+ 686   #enabled: false
+ 687   #protocol.udp:
+ 688     # The host and port to receive the new event
+ 689     #host: "localhost:9000"
+ 690
+ 691     # Maximum size of the message received over UDP
+ 692     #max_message_size: 10KiB
+ 693
+ 694 # Accept RFC3164 formatted syslog event via TCP.
+ 695 #- type: syslog
+ 696   #enabled: false
+ 697
+ 698   #protocol.tcp:
+ 699     # The host and port to receive the new event
+ 700     #host: "localhost:9000"
+ 701
+ 702     # Character used to split new message
+ 703     #line_delimiter: "\n"
+ 704
+ 705     # Maximum size in bytes of the message received over TCP
+ 706     #max_message_size: 20MiB
+ 707
+ 708     # The number of seconds of inactivity before a remote connection is closed.
+ 709     #timeout: 300s
+ 710
+ 711     # Use SSL settings for TCP.
+ 712     #ssl.enabled: true
+ 713
+ 714     # List of supported/valid TLS versions. By default all TLS versions 1.0 up to
+ 715     # 1.2 are enabled.
+ 716     #ssl.supported_protocols: [TLSv1.0, TLSv1.1, TLSv1.2]
+ 717
+ 718     # SSL configuration. By default is off.
+ 719     # List of root certificates for client verifications
+ 720     #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
+ 721
+ 722     # Certificate for SSL server authentication.
+ 723     #ssl.certificate: "/etc/pki/client/cert.pem"
+ 724
+ 725     # Server Certificate Key,
+ 726     #ssl.key: "/etc/pki/client/cert.key"
+ 727
+ 728     # Optional passphrase for decrypting the Certificate Key.
+ 729     #ssl.key_passphrase: ''
+ 730
+ 731     # Configure cipher suites to be used for SSL connections.
+ 732     #ssl.cipher_suites: []
+ 733
+ 734     # Configure curve types for ECDHE based cipher suites.
+ 735     #ssl.curve_types: []
+ 736
+ 737     # Configure what types of client authentication are supported. Valid options
+ 738     # are `none`, `optional`, and `required`. When `certificate_authorities` is set it will
+ 739     # default to `required` otherwise it will be set to `none`.
+ 740     #ssl.client_authentication: "required"
+ 741
+ 742 #------------------------------ Container input --------------------------------
+ 743 #- type: container
+ 744   #enabled: false
+ 745
+ 746   # Paths for container logs that should be crawled and fetched.
+ 747   #paths:
+ 748   #  -/var/lib/docker/containers/*/*.log
+ 749
+ 750   # Configure stream to filter to a specific stream: stdout, stderr or all (default)
+ 751   #stream: all
+ 752
+ 753 #========================== Filebeat autodiscover ==============================
+ 754
+ 755 # Autodiscover allows you to detect changes in the system and spawn new modules
+ 756 # or inputs as they happen.
+757
+ 758 #filebeat.autodiscover:
+ 759   # List of enabled autodiscover providers
+ 760 #  providers:
+ 761 #    - type: docker
+ 762 #      templates:
+ 763 #        - condition:
+ 764 #            equals.docker.container.image: busybox
+ 765 #          config:
+ 766 #            - type: container
+ 767 #              paths:
+ 768 #                - /var/lib/docker/containers/${data.docker.container.id}/*.log
+ 769
+ 770 #========================= Filebeat global options ============================
+ 771
+ 772 # Registry data path. If a relative path is used, it is considered relative to the
+ 773 # data path.
+ 774 #filebeat.registry.path: ${path.data}/registry
+ 775
+ 776 # The permissions mask to apply on registry data, and meta files. The default
+ 777 # value is 0600.  Must be a valid Unix-style file permissions mask expressed in
+ 778 # octal notation.  This option is not supported on Windows.
+ 779 #filebeat.registry.file_permissions: 0600
+ 780
+ 781 # The timeout value that controls when registry entries are written to disk
+ 782 # (flushed). When an unwritten update exceeds this value, it triggers a write
+ 783 # to disk. When flush is set to 0s, the registry is written to disk after each
+ 784 # batch of events has been published successfully. The default value is 0s.
+ 785 #filebeat.registry.flush: 0s
+ 786
+ 787
+ 788 # Starting with Filebeat 7.0, the registry uses a new directory format to store
+ 789 # Filebeat state. After you upgrade, Filebeat will automatically migrate a 6.x
+ 790 # registry file to use the new directory format. If you changed
+ 791 # filebeat.registry.path while upgrading, set filebeat.registry.migrate_file to
+ 792 # point to the old registry file.
+ 793 #filebeat.registry.migrate_file: ${path.data}/registry
+ 794
+ 795 # By default Ingest pipelines are not updated if a pipeline with the same ID
+ 796 # already exists. If this option is enabled Filebeat overwrites pipelines
+ 797 # everytime a new Elasticsearch connection is established.
+ 798 #filebeat.overwrite_pipelines: false
+799
+ 800 # How long filebeat waits on shutdown for the publisher to finish.
+ 801 # Default is 0, not waiting.
+ 802 #filebeat.shutdown_timeout: 0
+ 803
+ 804 # Enable filebeat config reloading
+ 805 #filebeat.config:
+ 806   #inputs:
+ 807     #enabled: false
+ 808     #path: inputs.d/*.yml
+ 809     #reload.enabled: true
+ 810     #reload.period: 10s
+ 811   #modules:
+ 812     #enabled: false
+ 813     #path: modules.d/*.yml
+ 814     #reload.enabled: true
+ 815     #reload.period: 10s
+ 816
+ 817 #================================ General ======================================
+ 818
+ 819 # The name of the shipper that publishes the network data. It can be used to group
+ 820 # all the transactions sent by a single shipper in the web interface.
+ 821 # If this options is not defined, the hostname is used.
+ 822 #name:
+ 823
+ 824 # The tags of the shipper are included in their own field with each
+ 825 # transaction published. Tags make it easy to group servers by different
+ 826 # logical properties.
+ 827 #tags: ["service-X", "web-tier"]
+ 828
+ 829 # Optional fields that you can specify to add additional information to the
+ 830 # output. Fields can be scalar values, arrays, dictionaries, or any nested
+ 831 # combination of these.
+ 832 #fields:
+ 833 #  env: staging
+ 834
+ 835 # If this option is set to true, the custom fields are stored as top-level
+ 836 # fields in the output document instead of being grouped under a fields
+ 837 # sub-dictionary. Default is false.
+ 838 #fields_under_root: false
+ 839
+ 840 # Internal queue configuration for buffering events to be published.
+ 841 #queue:
+ 842   # Queue type by name (default 'mem')
+ 843   # The memory queue will present all available events (up to the outputs
+ 844   # bulk_max_size) to the output, the moment the output is ready to server
+ 845   # another batch of events.
+ 846   #mem:
+ 847     # Max number of events the queue can buffer.
+ 848     #events: 4096
+ 849
+ 850     # Hints the minimum number of events stored in the queue,
+ 851     # before providing a batch of events to the outputs.
+ 852     # The default value is set to 2048.
+ 853     # A value of 0 ensures events are immediately available
+ 854     # to be sent to the outputs.
+ 855     #flush.min_events: 2048
+ 856
+ 857     # Maximum duration after which events are available to the outputs,
+ 858     # if the number of events stored in the queue is < `flush.min_events`.
+ 859     #flush.timeout: 1s
+ 860
+ 861   # The spool queue will store events in a local spool file, before
+ 862   # forwarding the events to the outputs.
+ 863   #
+ 864   # Beta: spooling to disk is currently a beta feature. Use with care.
+ 865   #
+ 866   # The spool file is a circular buffer, which blocks once the file/buffer is full.
+ 867   # Events are put into a write buffer and flushed once the write buffer
+ 868   # is full or the flush_timeout is triggered.
+ 869   # Once ACKed by the output, events are removed immediately from the queue,
+ 870   # making space for new events to be persisted.
+ 871   #spool:
+ 872     # The file namespace configures the file path and the file creation settings.
+ 873     # Once the file exists, the `size`, `page_size` and `prealloc` settings
+ 874     # will have no more effect.
+ 875     #file:
+ 876       # Location of spool file. The default value is ${path.data}/spool.dat.
+ 877       #path: "${path.data}/spool.dat"
+ 878
+ 879       # Configure file permissions if file is created. The default value is 0600.
+ 880       #permissions: 0600
+ 881
+ 882       # File size hint. The spool blocks, once this limit is reached. The default value is 100 MiB.
+ 883       #size: 100MiB
+ 884
+ 885       # The files page size. A file is split into multiple pages of the same size. The default value is 4KiB.
+ 886       #page_size: 4KiB
+ 887
+ 888       # If prealloc is set, the required space for the file is reserved using
+ 889       # truncate. The default value is true.
+ 890       #prealloc: true
+ 891
+ 892     # Spool writer settings
+ 893     # Events are serialized into a write buffer. The write buffer is flushed if:
+ 894     # - The buffer limit has been reached.
+ 895     # - The configured limit of buffered events is reached.
+ 896     # - The flush timeout is triggered.
+ 897     #write:
+ 898       # Sets the write buffer size.
+ 899       #buffer_size: 1MiB
+ 900
+ 901       # Maximum duration after which events are flushed if the write buffer
+ 902       # is not full yet. The default value is 1s.
+ 903       #flush.timeout: 1s
+ 904
+ 905       # Number of maximum buffered events. The write buffer is flushed once the
+ 906       # limit is reached.
+ 907       #flush.events: 16384
+ 908
+ 909       # Configure the on-disk event encoding. The encoding can be changed
+ 910       # between restarts.
+ 911       # Valid encodings are: json, ubjson, and cbor.
+ 912       #codec: cbor
+ 913     #read:
+ 914       # Reader flush timeout, waiting for more events to become available, so
+ 915       # to fill a complete batch as required by the outputs.
+ 916       # If flush_timeout is 0, all available events are forwarded to the
+ 917       # outputs immediately.
+ 918       # The default value is 0s.
+ 919       #flush.timeout: 0s
+ 920
+ 921 # Sets the maximum number of CPUs that can be executing simultaneously. The
+ 922 # default is the number of logical CPUs available in the system.
+ 923 #max_procs:
+ 924
+ 925 #================================ Processors ===================================
+ 926
+ 927 # Processors are used to reduce the number of fields in the exported event or to
+ 928 # enhance the event with external metadata. This section defines a list of
+ 929 # processors that are applied one by one and the first one receives the initial
+ 930 # event:
+ 931 #
+ 932 #   event -> filter1 -> event1 -> filter2 ->event2 ...
+ 933 #
+ 934 # The supported processors are drop_fields, drop_event, include_fields,
+ 935 # decode_json_fields, and add_cloud_metadata.
+ 936 #
+ 937 # For example, you can use the following processors to keep the fields that
+ 938 # contain CPU load percentages, but remove the fields that contain CPU ticks
+ 939 # values:
+ 940 #
+ 941 #processors:
+ 942 #- include_fields:
+ 943 #    fields: ["cpu"]
+ 944 #- drop_fields:
+ 945 #    fields: ["cpu.user", "cpu.system"]
+ 946 #
+ 947 # The following example drops the events that have the HTTP response code 200:
+ 948 #
+ 949 #processors:
+ 950 #- drop_event:
+ 951 #    when:
+ 952 #       equals:
+ 953 #           http.code: 200
+ 954 #
+ 955 # The following example renames the field a to b:
+ 956 #
+ 957 #processors:
+ 958 #- rename:
+ 959 #    fields:
+ 960 #       - from: "a"
+ 961 #         to: "b"
+ 962 #
+ 963 # The following example tokenizes the string into fields:
+ 964 #
+ 965 #processors:
+ 966 #- dissect:
+ 967 #    tokenizer: "%{key1} - %{key2}"
+ 968 #    field: "message"
+ 969 #    target_prefix: "dissect"
+ 970 #
+ 971 # The following example enriches each event with metadata from the cloud
+ 972 # provider about the host machine. It works on EC2, GCE, DigitalOcean,
+ 973 # Tencent Cloud, and Alibaba Cloud.
+ 974 #
+ 975 #processors:
+ 976 #- add_cloud_metadata: ~
+ 977 #
+ 978 # The following example enriches each event with the machine's local time zone
+ 979 # offset from UTC.
+ 980 #
+ 981 #processors:
+ 982 #- add_locale:
+ 983 #    format: offset
+ 984 #
+ 985 # The following example enriches each event with docker metadata, it matches
+ 986 # given fields to an existing container id and adds info from that container:
+ 987 #
+ 988 #processors:
+ 989 #- add_docker_metadata:
+ 990 #    host: "unix:///var/run/docker.sock"
+ 991 #    match_fields: ["system.process.cgroup.id"]
+ 992 #    match_pids: ["process.pid", "process.ppid"]
+ 993 #    match_source: true
+ 994 #    match_source_index: 4
+ 995 #    match_short_id: false
+ 996 #    cleanup_timeout: 60
+ 997 #    labels.dedot: false
+ 998 #    # To connect to Docker over TLS you must specify a client and CA certificate.
+ 999 #    #ssl:
+1000 #    #  certificate_authority: "/etc/pki/root/ca.pem"
+1001 #    #  certificate:           "/etc/pki/client/cert.pem"
+1002 #    #  key:                   "/etc/pki/client/cert.key"
+1003 #
+1004 # The following example enriches each event with docker metadata, it matches
+1005 # container id from log path available in `source` field (by default it expects
+1006 # it to be /var/lib/docker/containers/*/*.log).
+1007 #
+1008 #processors:
+1009 #- add_docker_metadata: ~
+1010 #
+1011 # The following example enriches each event with host metadata.
+1012 #
+1013 #processors:
+1014 #- add_host_metadata:
+1015 #   netinfo.enabled: false
+1016 #
+1017 # The following example enriches each event with process metadata using
+1018 # process IDs included in the event.
+1019 #
+1020 #processors:
+1021 #- add_process_metadata:
+1022 #    match_pids: ["system.process.ppid"]
+1023 #    target: system.process.parent
+1024 #
+1025 # The following example decodes fields containing JSON strings
+1026 # and replaces the strings with valid JSON objects.
+1027 #
+1028 #processors:
+1029 #- decode_json_fields:
+1030 #    fields: ["field1", "field2", ...]
+1031 #    process_array: false
+1032 #    max_depth: 1
+1033 #    target: ""
+1034 #    overwrite_keys: false
+1035 #
+1036 #processors:
+1037 #- decompress_gzip_field:
+1038 #    from: "field1"
+1039 #    to: "field2"
+1040 #    ignore_missing: false
+1041 #    fail_on_error: true
+1042 #
+1043 # The following example copies the value of message to message_copied
+1044 #
+1045 #processors:
+1046 #- copy_fields:
+1047 #    fields:
+1048 #        - from: message
+1049 #          to: message_copied
+1050 #    fail_on_error: true
+1051 #    ignore_missing: false
+1052 #
+1053 # The following example truncates the value of message to 1024 bytes
+1054 #
+1055 #processors:
+1056 #- truncate_fields:
+1057 #    fields:
+1058 #      - message
+1059 #    max_bytes: 1024
+1060 #    fail_on_error: false
+1061 #    ignore_missing: true
+1062 #
+1063 # The following example preserves the raw message under event.original
+1064 #
+1065 #processors:
+1066 #- copy_fields:
+1067 #    fields:
+1068 #        - from: message
+1069 #          to: event.original
+1070 #    fail_on_error: false
+1071 #    ignore_missing: true
+1072 #- truncate_fields:
+1073 #    fields:
+1074 #      - event.original
+1075 #    max_bytes: 1024
+1076 #    fail_on_error: false
+1077 #    ignore_missing: true
+1078
+1079 #============================= Elastic Cloud ==================================
+1080
+1081 # These settings simplify using Filebeat with the Elastic Cloud (https://cloud.elastic.co/).
+1082
+1083 # The cloud.id setting overwrites the `output.elasticsearch.hosts` and
+1084 # `setup.kibana.host` options.
+1085 # You can find the `cloud.id` in the Elastic Cloud web UI.
+1086 #cloud.id:
+1087
+1088 # The cloud.auth setting overwrites the `output.elasticsearch.username` and
+1089 # `output.elasticsearch.password` settings. The format is `<user>:<pass>`.
+1090 #cloud.auth:
+1091
+1092 #================================ Outputs ======================================
+1093
+1094 # Configure what output to use when sending the data collected by the beat.
+1095
+1096 #-------------------------- Elasticsearch output -------------------------------
+1097 output.elasticsearch:
+1098   # Boolean flag to enable or disable the output module.
+1099   #enabled: true
+1100
+1101   # Array of hosts to connect to.
+1102   # Scheme and port can be left out and will be set to the default (http and 9200)
+1103   # In case you specify and additional path, the scheme is required: http://localhost:9200/path
+1104   # IPv6 addresses should always be defined as: https://[2001:db8::1]:9200
+1105   hosts: ["10.1.0.4:9200"]
+1106   username: "elastic"
+1107   password: "changeme"
+1108
+1109   # Set gzip compression level.
+1110   #compression_level: 0
+1111
+1112   # Configure escaping HTML symbols in strings.
+1113   #escape_html: false
+1114
+1115   # Optional protocol and basic auth credentials.
+1116   #protocol: "https"
+1117   #username: "elastic"
+1118   #password: "changeme"
+1119
+1120   # Dictionary of HTTP parameters to pass within the URL with index operations.
+1121   #parameters:
+1122     #param1: value1
+1123     #param2: value2
+1124
+1125   # Number of workers per Elasticsearch host.
+1126   #worker: 1
+1127
+1128   # Optional index name. The default is "filebeat" plus date
+1129   # and generates [filebeat-]YYYY.MM.DD keys.
+1130   # In case you modify this pattern you must update setup.template.name and setup.template.pattern accordingly.
+1131   #index: "filebeat-%{[agent.version]}-%{+yyyy.MM.dd}"
+1132
+1133   # Optional ingest node pipeline. By default no pipeline will be used.
+1134   #pipeline: ""
+1135
+1136   # Optional HTTP path
+1137   #path: "/elasticsearch"
+1138
+1139   # Custom HTTP headers to add to each request
+1140   #headers:
+1141   #  X-My-Header: Contents of the header
+1142
+1143   # Proxy server URL
+1144   #proxy_url: http://proxy:3128
+1145
+1146   # Whether to disable proxy settings for outgoing connections. If true, this
+1147   # takes precedence over both the proxy_url field and any environment settings
+1148   # (HTTP_PROXY, HTTPS_PROXY). The default is false.
+1149   #proxy_disable: false
+1150
+1151   # The number of times a particular Elasticsearch index operation is attempted. If
+1152   # the indexing operation doesn't succeed after this many retries, the events are
+1153   # dropped. The default is 3.
+1154   #max_retries: 3
+1155
+1156   # The maximum number of events to bulk in a single Elasticsearch bulk API index request.
+1157   # The default is 50.
+1158   #bulk_max_size: 50
+1159
+1160   # The number of seconds to wait before trying to reconnect to Elasticsearch
+1161   # after a network error. After waiting backoff.init seconds, the Beat
+1162   # tries to reconnect. If the attempt fails, the backoff timer is increased
+1163   # exponentially up to backoff.max. After a successful connection, the backoff
+1164   # timer is reset. The default is 1s.
+1165   #backoff.init: 1s
+1166
+1167   # The maximum number of seconds to wait before attempting to connect to
+1168   # Elasticsearch after a network error. The default is 60s.
+1169   #backoff.max: 60s
+1170
+1171   # Configure HTTP request timeout before failing a request to Elasticsearch.
+1172   #timeout: 90
+1173
+1174   # Use SSL settings for HTTPS.
+1175   #ssl.enabled: true
+1176
+1177   # Configure SSL verification mode. If `none` is configured, all server hosts
+1178   # and certificates will be accepted. In this mode, SSL-based connections are
+1179   # susceptible to man-in-the-middle attacks. Use only for testing. Default is
+1180   # `full`.
+1181   #ssl.verification_mode: full
+1182
+1183   # List of supported/valid TLS versions. By default all TLS versions from 1.0 up to
+1184   # 1.2 are enabled.
+1185   #ssl.supported_protocols: [TLSv1.0, TLSv1.1, TLSv1.2]
+1186
+1187   # List of root certificates for HTTPS server verifications
+1188   #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
+1189
+1190   # Certificate for SSL client authentication
+1191   #ssl.certificate: "/etc/pki/client/cert.pem"
+1192
+1193   # Client certificate key
+1194   #ssl.key: "/etc/pki/client/cert.key"
+1195
+1196   # Optional passphrase for decrypting the certificate key.
+1197   #ssl.key_passphrase: ''
+1198
+1199   # Configure cipher suites to be used for SSL connections
+1200   #ssl.cipher_suites: []
+1201
+1202   # Configure curve types for ECDHE-based cipher suites
+1203   #ssl.curve_types: []
+1204
+1205   # Configure what types of renegotiation are supported. Valid options are
+1206   # never, once, and freely. Default is never.
+1207   #ssl.renegotiation: never
+1208
+1209 #----------------------------- Logstash output ---------------------------------
+1210 #output.logstash:
+1211   # Boolean flag to enable or disable the output module.
+1212   #enabled: true
+1213
+1214   # The Logstash hosts
+1215   #hosts: ["localhost:5044"]
+1216
+1217   # Number of workers per Logstash host.
+1218   #worker: 1
+1219
+1220   # Set gzip compression level.
+1221   #compression_level: 3
+1222
+1223   # Configure escaping HTML symbols in strings.
+1224   #escape_html: false
+1225
+1226   # Optional maximum time to live for a connection to Logstash, after which the
+1227   # connection will be re-established.  A value of `0s` (the default) will
+1228   # disable this feature.
+1229   #
+1230   # Not yet supported for async connections (i.e. with the "pipelining" option set)
+1231   #ttl: 30s
+1232
+1233   # Optionally load-balance events between Logstash hosts. Default is false.
+1234   #loadbalance: false
+1235
+1236   # Number of batches to be sent asynchronously to Logstash while processing
+1237   # new batches.
+1238   #pipelining: 2
+1239
+1240   # If enabled only a subset of events in a batch of events is transferred per
+1241   # transaction.  The number of events to be sent increases up to `bulk_max_size`
+1242   # if no error is encountered.
+1243   #slow_start: false
+1244
+1245   # The number of seconds to wait before trying to reconnect to Logstash
+1246   # after a network error. After waiting backoff.init seconds, the Beat
+1247   # tries to reconnect. If the attempt fails, the backoff timer is increased
+1248   # exponentially up to backoff.max. After a successful connection, the backoff
+1249   # timer is reset. The default is 1s.
+1250   #backoff.init: 1s
+1251
+1252   # The maximum number of seconds to wait before attempting to connect to
+1253   # Logstash after a network error. The default is 60s.
+1254   #backoff.max: 60s
+1255
+1256   # Optional index name. The default index name is set to filebeat
+1257   # in all lowercase.
+1258   #index: 'filebeat'
+1259
+1260   # SOCKS5 proxy server URL
+1261   #proxy_url: socks5://user:password@socks5-server:2233
+1262
+1263   # Resolve names locally when using a proxy server. Defaults to false.
+1264   #proxy_use_local_resolver: false
+1265
+1266   # Enable SSL support. SSL is automatically enabled if any SSL setting is set.
+1267   #ssl.enabled: true
+1268
+1269   # Configure SSL verification mode. If `none` is configured, all server hosts
+1270   # and certificates will be accepted. In this mode, SSL based connections are
+1271   # susceptible to man-in-the-middle attacks. Use only for testing. Default is
+1272   # `full`.
+1273   #ssl.verification_mode: full
+1274
+1275   # List of supported/valid TLS versions. By default all TLS versions from 1.0 up to
+1276   # 1.2 are enabled.
+1277   #ssl.supported_protocols: [TLSv1.0, TLSv1.1, TLSv1.2]
+1278
+1279   # Optional SSL configuration options. SSL is off by default.
+1280   # List of root certificates for HTTPS server verifications
+1281   #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
+1282
+1283   # Certificate for SSL client authentication
+1284   #ssl.certificate: "/etc/pki/client/cert.pem"
+1285
+1286   # Client certificate key
+1287   #ssl.key: "/etc/pki/client/cert.key"
+1288
+1289   # Optional passphrase for decrypting the Certificate Key.
+1290   #ssl.key_passphrase: ''
+1291
+1292   # Configure cipher suites to be used for SSL connections
+1293   #ssl.cipher_suites: []
+1294
+1295   # Configure curve types for ECDHE-based cipher suites
+1296   #ssl.curve_types: []
+1297
+1298   # Configure what types of renegotiation are supported. Valid options are
+1299   # never, once, and freely. Default is never.
+1300   #ssl.renegotiation: never
+1301
+1302   # The number of times to retry publishing an event after a publishing failure.
+1303   # After the specified number of retries, the events are typically dropped.
+1304   # Some Beats, such as Filebeat and Winlogbeat, ignore the max_retries setting
+1305   # and retry until all events are published.  Set max_retries to a value less
+1306   # than 0 to retry until all events are published. The default is 3.
+1307   #max_retries: 3
+1308
+1309   # The maximum number of events to bulk in a single Logstash request. The
+1310   # default is 2048.
+1311   #bulk_max_size: 2048
+1312
+1313   # The number of seconds to wait for responses from the Logstash server before
+1314   # timing out. The default is 30s.
+1315   #timeout: 30s
+1316
+1317 #------------------------------- Kafka output ----------------------------------
+1318 #output.kafka:
+1319   # Boolean flag to enable or disable the output module.
+1320   #enabled: true
+1321
+1322   # The list of Kafka broker addresses from which to fetch the cluster metadata.
+1323   # The cluster metadata contain the actual Kafka brokers events are published
+1324   # to.
+1325   #hosts: ["localhost:9092"]
+1326
+1327   # The Kafka topic used for produced events. The setting can be a format string
+1328   # using any event field. To set the topic from document type use `%{[type]}`.
+1329   #topic: beats
+1330
+1331   # The Kafka event key setting. Use format string to create a unique event key.
+1332   # By default no event key will be generated.
+1333   #key: ''
+1334
+1335   # The Kafka event partitioning strategy. Default hashing strategy is `hash`
+1336   # using the `output.kafka.key` setting or randomly distributes events if
+1337   # `output.kafka.key` is not configured.
+1338   #partition.hash:
+1339     # If enabled, events will only be published to partitions with reachable
+1340     # leaders. Default is false.
+1341     #reachable_only: false
+1342
+1343     # Configure alternative event field names used to compute the hash value.
+1344     # If empty `output.kafka.key` setting will be used.
+1345     # Default value is empty list.
+1346     #hash: []
+1347
+1348   # Authentication details. Password is required if username is set.
+1349   #username: ''
+1350   #password: ''
+1351
+1352   # Kafka version Filebeat is assumed to run against. Defaults to the "1.0.0".
+1353   #version: '1.0.0'
+1354
+1355   # Configure JSON encoding
+1356   #codec.json:
+1357     # Pretty-print JSON event
+1358     #pretty: false
+1359
+1360     # Configure escaping HTML symbols in strings.
+1361     #escape_html: false
+1362
+1363   # Metadata update configuration. Metadata contains leader information
+1364   # used to decide which broker to use when publishing.
+1365   #metadata:
+1366     # Max metadata request retry attempts when cluster is in middle of leader
+1367     # election. Defaults to 3 retries.
+1368     #retry.max: 3
+1369
+1370     # Wait time between retries during leader elections. Default is 250ms.
+1371     #retry.backoff: 250ms
+1372
+1373     # Refresh metadata interval. Defaults to every 10 minutes.
+1374     #refresh_frequency: 10m
+1375
+1376     # Strategy for fetching the topics metadata from the broker. Default is false.
+1377     #full: false
+1378
+1379   # The number of concurrent load-balanced Kafka output workers.
+1380   #worker: 1
+1381
+1382   # The number of times to retry publishing an event after a publishing failure.
+1383   # After the specified number of retries, events are typically dropped.
+1384   # Some Beats, such as Filebeat, ignore the max_retries setting and retry until
+1385   # all events are published.  Set max_retries to a value less than 0 to retry
+1386   # until all events are published. The default is 3.
+1387   #max_retries: 3
+1388
+1389   # The maximum number of events to bulk in a single Kafka request. The default
+1390   # is 2048.
+1391   #bulk_max_size: 2048
+1392
+1393   # Duration to wait before sending bulk Kafka request. 0 is no delay. The default
+1394   # is 0.
+1395   #bulk_flush_frequency: 0s
+1396
+1397   # The number of seconds to wait for responses from the Kafka brokers before
+1398   # timing out. The default is 30s.
+1399   #timeout: 30s
+1400
+1401   # The maximum duration a broker will wait for number of required ACKs. The
+1402   # default is 10s.
+1403   #broker_timeout: 10s
+1404
+1405   # The number of messages buffered for each Kafka broker. The default is 256.
+1406   #channel_buffer_size: 256
+1407
+1408   # The keep-alive period for an active network connection. If 0s, keep-alives
+1409   # are disabled. The default is 0 seconds.
+1410   #keep_alive: 0
+1411
+1412   # Sets the output compression codec. Must be one of none, snappy and gzip. The
+1413   # default is gzip.
+1414   #compression: gzip
+1415
+1416   # Set the compression level. Currently only gzip provides a compression level
+1417   # between 0 and 9. The default value is chosen by the compression algorithm.
+1418   #compression_level: 4
+1419
+1420   # The maximum permitted size of JSON-encoded messages. Bigger messages will be
+1421   # dropped. The default value is 1000000 (bytes). This value should be equal to
+1422   # or less than the broker's message.max.bytes.
+1423   #max_message_bytes: 1000000
+1424
+1425   # The ACK reliability level required from broker. 0=no response, 1=wait for
+1426   # local commit, -1=wait for all replicas to commit. The default is 1.  Note:
+1427   # If set to 0, no ACKs are returned by Kafka. Messages might be lost silently
+1428   # on error.
+1429   #required_acks: 1
+1430
+1431   # The configurable ClientID used for logging, debugging, and auditing
+1432   # purposes.  The default is "beats".
+1433   #client_id: beats
+1434
+1435   # Enable SSL support. SSL is automatically enabled if any SSL setting is set.
+1436   #ssl.enabled: true
+1437
+1438   # Optional SSL configuration options. SSL is off by default.
+1439   # List of root certificates for HTTPS server verifications
+1440   #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
+1441
+1442   # Configure SSL verification mode. If `none` is configured, all server hosts
+1443   # and certificates will be accepted. In this mode, SSL based connections are
+1444   # susceptible to man-in-the-middle attacks. Use only for testing. Default is
+1445   # `full`.
+1446   #ssl.verification_mode: full
+1447
+1448   # List of supported/valid TLS versions. By default all TLS versions from 1.0 up to
+1449   # 1.2 are enabled.
+1450   #ssl.supported_protocols: [TLSv1.0, TLSv1.1, TLSv1.2]
+1451
+1452   # Certificate for SSL client authentication
+1453   #ssl.certificate: "/etc/pki/client/cert.pem"
+1454
+1455   # Client Certificate Key
+1456   #ssl.key: "/etc/pki/client/cert.key"
+1457
+1458   # Optional passphrase for decrypting the Certificate Key.
+1459   #ssl.key_passphrase: ''
+1460
+1461   # Configure cipher suites to be used for SSL connections
+1462   #ssl.cipher_suites: []
+1463
+1464   # Configure curve types for ECDHE-based cipher suites
+1465   #ssl.curve_types: []
+1466
+1467   # Configure what types of renegotiation are supported. Valid options are
+1468   # never, once, and freely. Default is never.
+1469   #ssl.renegotiation: never
+1470
+1471 #------------------------------- Redis output ----------------------------------
+1472 #output.redis:
+1473   # Boolean flag to enable or disable the output module.
+1474   #enabled: true
+1475
+1476   # Configure JSON encoding
+1477   #codec.json:
+1478     # Pretty print json event
+1479     #pretty: false
+1480
+1481     # Configure escaping HTML symbols in strings.
+1482     #escape_html: false
+1483
+1484   # The list of Redis servers to connect to. If load-balancing is enabled, the
+1485   # events are distributed to the servers in the list. If one server becomes
+1486   # unreachable, the events are distributed to the reachable servers only.
+1487   #hosts: ["localhost:6379"]
+1488
+1489   # The name of the Redis list or channel the events are published to. The
+1490   # default is filebeat.
+1491   #key: filebeat
+1492
+1493   # The password to authenticate to Redis with. The default is no authentication.
+1494   #password:
+1495
+1496   # The Redis database number where the events are published. The default is 0.
+1497   #db: 0
+1498
+1499   # The Redis data type to use for publishing events. If the data type is list,
+1500   # the Redis RPUSH command is used. If the data type is channel, the Redis
+1501   # PUBLISH command is used. The default value is list.
+1502   #datatype: list
+1503
+1504   # The number of workers to use for each host configured to publish events to
+1505   # Redis. Use this setting along with the loadbalance option. For example, if
+1506   # you have 2 hosts and 3 workers, in total 6 workers are started (3 for each
+1507   # host).
+1508   #worker: 1
+1509
+1510   # If set to true and multiple hosts or workers are configured, the output
+1511   # plugin load balances published events onto all Redis hosts. If set to false,
+1512   # the output plugin sends all events to only one host (determined at random)
+1513   # and will switch to another host if the currently selected one becomes
+1514   # unreachable. The default value is true.
+1515   #loadbalance: true
+1516
+1517   # The Redis connection timeout in seconds. The default is 5 seconds.
+1518   #timeout: 5s
+1519
+1520   # The number of times to retry publishing an event after a publishing failure.
+1521   # After the specified number of retries, the events are typically dropped.
+1522   # Some Beats, such as Filebeat, ignore the max_retries setting and retry until
+1523   # all events are published. Set max_retries to a value less than 0 to retry
+1524   # until all events are published. The default is 3.
+1525   #max_retries: 3
+1526
+1527   # The number of seconds to wait before trying to reconnect to Redis
+1528   # after a network error. After waiting backoff.init seconds, the Beat
+1529   # tries to reconnect. If the attempt fails, the backoff timer is increased
+1530   # exponentially up to backoff.max. After a successful connection, the backoff
+1531   # timer is reset. The default is 1s.
+1532   #backoff.init: 1s
+1533
+1534   # The maximum number of seconds to wait before attempting to connect to
+1535   # Redis after a network error. The default is 60s.
+1536   #backoff.max: 60s
+1537
+1538   # The maximum number of events to bulk in a single Redis request or pipeline.
+1539   # The default is 2048.
+1540   #bulk_max_size: 2048
+1541
+1542   # The URL of the SOCKS5 proxy to use when connecting to the Redis servers. The
+1543   # value must be a URL with a scheme of socks5://.
+1544   #proxy_url:
+1545
+1546   # This option determines whether Redis hostnames are resolved locally when
+1547   # using a proxy. The default value is false, which means that name resolution
+1548   # occurs on the proxy server.
+1549   #proxy_use_local_resolver: false
+1550
+1551   # Enable SSL support. SSL is automatically enabled, if any SSL setting is set.
+1552   #ssl.enabled: true
+1553
+1554   # Configure SSL verification mode. If `none` is configured, all server hosts
+1555   # and certificates will be accepted. In this mode, SSL based connections are
+1556   # susceptible to man-in-the-middle attacks. Use only for testing. Default is
+1557   # `full`.
+1558   #ssl.verification_mode: full
+1559
+1560   # List of supported/valid TLS versions. By default all TLS versions 1.0 up to
+1561   # 1.2 are enabled.
+1562   #ssl.supported_protocols: [TLSv1.0, TLSv1.1, TLSv1.2]
+1563
+1564   # Optional SSL configuration options. SSL is off by default.
+1565   # List of root certificates for HTTPS server verifications
+1566   #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
+1567
+1568   # Certificate for SSL client authentication
+1569   #ssl.certificate: "/etc/pki/client/cert.pem"
+1570
+1571   # Client Certificate Key
+1572   #ssl.key: "/etc/pki/client/cert.key"
+1573
+1574   # Optional passphrase for decrypting the Certificate Key.
+1575   #ssl.key_passphrase: ''
+1576
+1577   # Configure cipher suites to be used for SSL connections
+1578   #ssl.cipher_suites: []
+1579
+1580   # Configure curve types for ECDHE based cipher suites
+1581   #ssl.curve_types: []
+1582
+1583   # Configure what types of renegotiation are supported. Valid options are
+1584   # never, once, and freely. Default is never.
+1585   #ssl.renegotiation: never
+1586
+1587 #------------------------------- File output -----------------------------------
+1588 #output.file:
+1589   # Boolean flag to enable or disable the output module.
+1590   #enabled: true
+1591
+1592   # Configure JSON encoding
+1593   #codec.json:
+1594     # Pretty-print JSON event
+1595     #pretty: false
+1596
+1597     # Configure escaping HTML symbols in strings.
+1598     #escape_html: false
+1599
+1600   # Path to the directory where to save the generated files. The option is
+1601   # mandatory.
+1602   #path: "/tmp/filebeat"
+1603
+1604   # Name of the generated files. The default is `filebeat` and it generates
+1605   # files: `filebeat`, `filebeat.1`, `filebeat.2`, etc.
+1606   #filename: filebeat
+1607
+1608   # Maximum size in kilobytes of each file. When this size is reached, and on
+1609   # every Filebeat restart, the files are rotated. The default value is 10240
+1610   # kB.
+1611   #rotate_every_kb: 10000
+1612
+1613   # Maximum number of files under path. When this number of files is reached,
+1614   # the oldest file is deleted and the rest are shifted from last to first. The
+1615   # default is 7 files.
+1616   #number_of_files: 7
+1617
+1618   # Permissions to use for file creation. The default is 0600.
+1619   #permissions: 0600
+1620
+1621 #----------------------------- Console output ---------------------------------
+1622 #output.console:
+1623   # Boolean flag to enable or disable the output module.
+1624   #enabled: true
+1625
+1626   # Configure JSON encoding
+1627   #codec.json:
+1628     # Pretty-print JSON event
+1629     #pretty: false
+1630
+1631     # Configure escaping HTML symbols in strings.
+1632     #escape_html: false
+1633
+1634 #================================= Paths ======================================
+1635
+1636 # The home path for the Filebeat installation. This is the default base path
+1637 # for all other path settings and for miscellaneous files that come with the
+1638 # distribution (for example, the sample dashboards).
+1639 # If not set by a CLI flag or in the configuration file, the default for the
+1640 # home path is the location of the binary.
+1641 #path.home:
+1642
+1643 # The configuration path for the Filebeat installation. This is the default
+1644 # base path for configuration files, including the main YAML configuration file
+1645 # and the Elasticsearch template file. If not set by a CLI flag or in the
+1646 # configuration file, the default for the configuration path is the home path.
+1647 #path.config: ${path.home}
+1648
+1649 # The data path for the Filebeat installation. This is the default base path
+1650 # for all the files in which Filebeat needs to store its data. If not set by a
+1651 # CLI flag or in the configuration file, the default for the data path is a data
+1652 # subdirectory inside the home path.
+1653 #path.data: ${path.home}/data
+1654
+1655 # The logs path for a Filebeat installation. This is the default location for
+1656 # the Beat's log files. If not set by a CLI flag or in the configuration file,
+1657 # the default for the logs path is a logs subdirectory inside the home path.
+1658 #path.logs: ${path.home}/logs
+1659
+1660 #================================ Keystore ==========================================
+1661 # Location of the Keystore containing the keys and their sensitive values.
+1662 #keystore.path: "${path.config}/beats.keystore"
+1663
+1664 #============================== Dashboards =====================================
+1665 # These settings control loading the sample dashboards to the Kibana index. Loading
+1666 # the dashboards are disabled by default and can be enabled either by setting the
+1667 # options here, or by using the `-setup` CLI flag or the `setup` command.
+1668 #setup.dashboards.enabled: false
+1669
+1670 # The directory from where to read the dashboards. The default is the `kibana`
+1671 # folder in the home path.
+1672 #setup.dashboards.directory: ${path.home}/kibana
+1673
+1674 # The URL from where to download the dashboards archive. It is used instead of
+1675 # the directory if it has a value.
+1676 #setup.dashboards.url:
+1677
+1678 # The file archive (zip file) from where to read the dashboards. It is used instead
+1679 # of the directory when it has a value.
+1680 #setup.dashboards.file:
+1681
+1682 # In case the archive contains the dashboards from multiple Beats, this lets you
+1683 # select which one to load. You can load all the dashboards in the archive by
+1684 # setting this to the empty string.
+1685 #setup.dashboards.beat: filebeat
+1686
+1687 # The name of the Kibana index to use for setting the configuration. Default is ".kibana"
+1688 #setup.dashboards.kibana_index: .kibana
+1689
+1690 # The Elasticsearch index name. This overwrites the index name defined in the
+1691 # dashboards and index pattern. Example: testbeat-*
+1692 #setup.dashboards.index:
+1693
+1694 # Always use the Kibana API for loading the dashboards instead of autodetecting
+1695 # how to install the dashboards by first querying Elasticsearch.
+1696 #setup.dashboards.always_kibana: false
+1697
+1698 # If true and Kibana is not reachable at the time when dashboards are loaded,
+1699 # it will retry to reconnect to Kibana instead of exiting with an error.
+1700 #setup.dashboards.retry.enabled: false
+1701
+1702 # Duration interval between Kibana connection retries.
+1703 #setup.dashboards.retry.interval: 1s
+1704
+1705 # Maximum number of retries before exiting with an error, 0 for unlimited retrying.
+1706 #setup.dashboards.retry.maximum: 0
+1707
+1708
+1709 #============================== Template =====================================
+1710
+1711 # A template is used to set the mapping in Elasticsearch
+1712 # By default template loading is enabled and the template is loaded.
+1713 # These settings can be adjusted to load your own template or overwrite existing ones.
+1714
+1715 # Set to false to disable template loading.
+1716 #setup.template.enabled: true
+1717
+1718 # Template name. By default the template name is "filebeat-%{[agent.version]}"
+1719 # The template name and pattern has to be set in case the Elasticsearch index pattern is modified.
+1720 #setup.template.name: "filebeat-%{[agent.version]}"
+1721
+1723 # The first part is the version of the beat and then -* is used to match all daily indices.
+1724 # The template name and pattern has to be set in case the Elasticsearch index pattern is modified.
+1725 #setup.template.pattern: "filebeat-%{[agent.version]}-*"
+1726
+1727 # Path to fields.yml file to generate the template
+1728 #setup.template.fields: "${path.config}/fields.yml"
+1729
+1730 # A list of fields to be added to the template and Kibana index pattern. Also
+1731 # specify setup.template.overwrite: true to overwrite the existing template.
+1732 # This setting is experimental.
+1733 #setup.template.append_fields:
+1734 #- name: field_name
+1735 #  type: field_type
+1736
+1737 # Enable JSON template loading. If this is enabled, the fields.yml is ignored.
+1738 #setup.template.json.enabled: false
+1739
+1740 # Path to the JSON template file
+1741 #setup.template.json.path: "${path.config}/template.json"
+1742
+1743 # Name under which the template is stored in Elasticsearch
+1744 #setup.template.json.name: ""
+1745
+1746 # Overwrite existing template
+1747 #setup.template.overwrite: false
+1748
+1749 # Elasticsearch template settings
+1750 setup.template.settings:
+1751
+1752   # A dictionary of settings to place into the settings.index dictionary
+1753   # of the Elasticsearch template. For more details, please check
+1754   # https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html
+1755   #index:
+1756     #number_of_shards: 1
+1757     #codec: best_compression
+1758     #number_of_routing_shards: 30
+1759
+1760   # A dictionary of settings for the _source field. For more details, please check
+1761   # https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-source-field.html
+1762   #_source:
+1763     #enabled: false
+1764
+1765 #============================== Setup ILM =====================================
+1766
+1767 # Configure index lifecycle management (ILM). These settings create a write
+1768 # alias and add additional settings to the index template. When ILM is enabled,
+1769 # output.elasticsearch.index is ignored, and the write alias is used to set the
+1770 # index name.
+1771
+1772 # Enable ILM support. Valid values are true, false, and auto. When set to auto
+1773 # (the default), the Beat uses index lifecycle management when it connects to a
+1774 # cluster that supports ILM; otherwise, it creates daily indices.
+1775 #setup.ilm.enabled: auto
+1776
+1777 # Set the prefix used in the index lifecycle write alias name. The default alias
+1778 # name is 'filebeat-%{[agent.version]}'.
+1779 #setup.ilm.rollover_alias: "filebeat"
+1780
+1781 # Set the rollover index pattern. The default is "%{now/d}-000001".
+1782 #setup.ilm.pattern: "{now/d}-000001"
+1783
+1784 # Set the lifecycle policy name. The default policy name is
+1785 # 'filebeat-%{[agent.version]}'.
+1786 #setup.ilm.policy_name: "mypolicy"
+1787
+1788 # The path to a JSON file that contains a lifecycle policy configuration. Used
+1789 # to load your own lifecycle policy.
+1790 #setup.ilm.policy_file:
+1791
+1792 # Disable the check for an existing lifecycle policy. The default is false. If
+1793 # you disable this check, set setup.ilm.overwrite: true so the lifecycle policy
+1794 # can be installed.
+1795 #setup.ilm.check_exists: false
+1796
+1797 # Overwrite the lifecycle policy at startup. The default is false.
+1798 #setup.ilm.overwrite: false
+1799
+1800 #============================== Kibana =====================================
+1801
+1802 # Starting with Beats version 6.0.0, the dashboards are loaded via the Kibana API.
+1803 # This requires a Kibana endpoint configuration.
+1804 setup.kibana:
+1805   host: "10.1.0.4:5601"
+1806   # Kibana Host
+1807   # Scheme and port can be left out and will be set to the default (http and 5601)
+1808   # In case you specify and additional path, the scheme is required: http://localhost:5601/path
+1809   # IPv6 addresses should always be defined as: https://[2001:db8::1]:5601
+1810   #host: "localhost:5601"
+1811
+1812   # Optional protocol and basic auth credentials.
+1813   #protocol: "https"
+1814   #username: "elastic"
+1815   #password: "changeme"
+1816
+1817   # Optional HTTP path
+1818   #path: ""
+1819
+1820   # Use SSL settings for HTTPS. Default is true.
+1821   #ssl.enabled: true
+1822
+1823   # Configure SSL verification mode. If `none` is configured, all server hosts
+1824   # and certificates will be accepted. In this mode, SSL based connections are
+1825   # susceptible to man-in-the-middle attacks. Use only for testing. Default is
+1826   # `full`.
+1827   #ssl.verification_mode: full
+1828
+1829   # List of supported/valid TLS versions. By default all TLS versions from 1.0 up to
+1830   # 1.2 are enabled.
+1831   #ssl.supported_protocols: [TLSv1.0, TLSv1.1, TLSv1.2]
+1832
+1833   # SSL configuration. The default is off.
+1834   # List of root certificates for HTTPS server verifications
+1835   #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
+1836
+1837   # Certificate for SSL client authentication
+1838   #ssl.certificate: "/etc/pki/client/cert.pem"
+1839
+1840   # Client certificate key
+1841   #ssl.key: "/etc/pki/client/cert.key"
+1842
+1843   # Optional passphrase for decrypting the certificate key.
+1844   #ssl.key_passphrase: ''
+1845
+1846   # Configure cipher suites to be used for SSL connections
+1847   #ssl.cipher_suites: []
+1848
+1849   # Configure curve types for ECDHE-based cipher suites
+1850   #ssl.curve_types: []
+1851
+1852
+1853
+1854 #================================ Logging ======================================
+1855 # There are four options for the log output: file, stderr, syslog, eventlog
+1856 # The file output is the default.
+1857
+1858 # Sets log level. The default log level is info.
+1859 # Available log levels are: error, warning, info, debug
+1860 #logging.level: info
+1861
+1862 # Enable debug output for selected components. To enable all selectors use ["*"]
+1863 # Other available selectors are "beat", "publish", "service"
+1864 # Multiple selectors can be chained.
+1865 #logging.selectors: [ ]
+1866
+1867 # Send all logging output to stderr. The default is false.
+1868 #logging.to_stderr: false
+1869
+1870 # Send all logging output to syslog. The default is false.
+1871 #logging.to_syslog: false
+1872
+1873 # Send all logging output to Windows Event Logs. The default is false.
+1874 #logging.to_eventlog: false
+1875
+1876 # If enabled, Filebeat periodically logs its internal metrics that have changed
+1877 # in the last period. For each metric that changed, the delta from the value at
+1878 # the beginning of the period is logged. Also, the total values for
+1879 # all non-zero internal metrics are logged on shutdown. The default is true.
+1880 #logging.metrics.enabled: true
+1881
+1882 # The period after which to log the internal metrics. The default is 30s.
+1883 #logging.metrics.period: 30s
+1884
+1885 # Logging to rotating files. Set logging.to_files to false to disable logging to
+1886 # files.
+1887 logging.to_files: true
+1888 logging.files:
+1889   # Configure the path where the logs are written. The default is the logs directory
+1890   # under the home path (the binary location).
+1891   #path: /var/log/filebeat
+1892
+1893   # The name of the files where the logs are written to.
+1894   #name: filebeat
+1895
+1896   # Configure log file size limit. If limit is reached, log file will be
+1897   # automatically rotated
+1898   #rotateeverybytes: 10485760 # = 10MB
+1899
+1900   # Number of rotated log files to keep. Oldest files will be deleted first.
+1901   #keepfiles: 7
+1902
+1903   # The permissions mask to apply when rotating log files. The default value is 0600.
+1904   # Must be a valid Unix-style file permissions mask expressed in octal notation.
+1905   #permissions: 0600
+1906
+1907   # Enable log file rotation on time intervals in addition to size-based rotation.
+1908   # Intervals must be at least 1s. Values of 1m, 1h, 24h, 7*24h, 30*24h, and 365*24h
+1909   # are boundary-aligned with minutes, hours, days, weeks, months, and years as
+1910   # reported by the local system clock. All other intervals are calculated from the
+1911   # Unix epoch. Defaults to disabled.
+1912   #interval: 0
+1913
+1914   # Rotate existing logs on startup rather than appending to the existing
+1915   # file. Defaults to true.
+1916   # rotateonstartup: true
+1917
+1918 # Set to true to log messages in JSON format.
+1919 #logging.json: false
+1920
+1921
+1922 #============================== X-Pack Monitoring ===============================
+1923 # Filebeat can export internal metrics to a central Elasticsearch monitoring
+1924 # cluster.  This requires xpack monitoring to be enabled in Elasticsearch.  The
+1925 # reporting is disabled by default.
+1926
+1927 # Set to true to enable the monitoring reporter.
+1928 #monitoring.enabled: false
+1929
+1930 # Sets the UUID of the Elasticsearch cluster under which monitoring data for this
+1931 # Filebeat instance will appear in the Stack Monitoring UI. If output.elasticsearch
+1932 # is enabled, the UUID is derived from the Elasticsearch cluster referenced by output.elasticsearch.
+1933 #monitoring.cluster_uuid:
+1934
+1935 # Uncomment to send the metrics to Elasticsearch. Most settings from the
+1936 # Elasticsearch output are accepted here as well.
+1937 # Note that the settings should point to your Elasticsearch *monitoring* cluster.
+1938 # Any setting that is not set is automatically inherited from the Elasticsearch
+1939 # output configuration, so if you have the Elasticsearch output configured such
+1940 # that it is pointing to your Elasticsearch monitoring cluster, you can simply
+1941 # uncomment the following line.
+1942 #monitoring.elasticsearch:
+1943
+1944   # Array of hosts to connect to.
+1945   # Scheme and port can be left out and will be set to the default (http and 9200)
+1946   # In case you specify and additional path, the scheme is required: http://localhost:9200/path
+1947   # IPv6 addresses should always be defined as: https://[2001:db8::1]:9200
+1948   #hosts: ["localhost:9200"]
+1949
+1950   # Set gzip compression level.
+1951   #compression_level: 0
+1952
+1953   # Optional protocol and basic auth credentials.
+1954   #protocol: "https"
+1955   #username: "beats_system"
+1956   #password: "changeme"
+1957
+1958   # Dictionary of HTTP parameters to pass within the URL with index operations.
+1959   #parameters:
+1960     #param1: value1
+1961     #param2: value2
+1962
+1963   # Custom HTTP headers to add to each request
+1964   #headers:
+1965   #  X-My-Header: Contents of the header
+1966
+1967   # Proxy server url
+1968   #proxy_url: http://proxy:3128
+1969
+1970   # The number of times a particular Elasticsearch index operation is attempted. If
+1971   # the indexing operation doesn't succeed after this many retries, the events are
+1972   # dropped. The default is 3.
+1973   #max_retries: 3
+1974
+1975   # The maximum number of events to bulk in a single Elasticsearch bulk API index request.
+1976   # The default is 50.
+1977   #bulk_max_size: 50
+1978
+1979   # The number of seconds to wait before trying to reconnect to Elasticsearch
+1980   # after a network error. After waiting backoff.init seconds, the Beat
+1981   # tries to reconnect. If the attempt fails, the backoff timer is increased
+1982   # exponentially up to backoff.max. After a successful connection, the backoff
+1983   # timer is reset. The default is 1s.
+1984   #backoff.init: 1s
+1985
+1986   # The maximum number of seconds to wait before attempting to connect to
+1987   # Elasticsearch after a network error. The default is 60s.
+1988   #backoff.max: 60s
+1989
+1990   # Configure HTTP request timeout before failing an request to Elasticsearch.
+1991   #timeout: 90
+1992
+1993   # Use SSL settings for HTTPS.
+1994   #ssl.enabled: true
+1995
+1996   # Configure SSL verification mode. If `none` is configured, all server hosts
+1997   # and certificates will be accepted. In this mode, SSL based connections are
+1998   # susceptible to man-in-the-middle attacks. Use only for testing. Default is
+1999   # `full`.
+2000   #ssl.verification_mode: full
+2001
+2002   # List of supported/valid TLS versions. By default all TLS versions from 1.0 up to
+2003   # 1.2 are enabled.
+2004   #ssl.supported_protocols: [TLSv1.0, TLSv1.1, TLSv1.2]
+2005
+2006   # SSL configuration. The default is off.
+2007   # List of root certificates for HTTPS server verifications
+2008   #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
+2009
+2010   # Certificate for SSL client authentication
+2011   #ssl.certificate: "/etc/pki/client/cert.pem"
+2012
+2013   # Client certificate key
+2014   #ssl.key: "/etc/pki/client/cert.key"
+2015

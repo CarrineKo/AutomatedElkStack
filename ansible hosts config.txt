@@ -1,0 +1,69 @@
+ 1 # This is the default ansible 'hosts' file.
+ 2 #
+ 3 # It should live in /etc/ansible/hosts
+ 4 #
+ 5 #   - Comments begin with the '#' character
+ 6 #   - Blank lines are ignored
+ 7 #   - Groups of hosts are delimited by [header] elements
+ 8 #   - You can enter hostnames or ip addresses
+ 9 #   - A hostname/ip can be a member of multiple groups
+10
+11 # Ex 1: Ungrouped hosts, specify before any group headers.
+12
+13 #green.example.com
+14 #blue.example.com
+15 #192.168.100.1
+16 #192.168.100.10
+17
+18 # Ex 2: A collection of hosts belonging to the 'webservers' group
+19
+20 [webservers]
+21 10.0.0.6 ansible_python_interpreter=/usr/bin/python3
+22 10.0.0.5 ansible_python_interpreter=/usr/bin/python3
+23
+24 [elk]
+25 10.1.0.4 ansible_python_interpreter=/usr/bin/python3
+26 #alpha.example.org
+27 #beta.example.org
+28 #192.168.1.100
+29 #192.168.1.110
+30
+31 # If you have multiple hosts following a pattern you can specify
+32 # them like this:
+33
+34 #www[001:006].example.com
+35
+36 # Ex 3: A collection of database servers in the 'dbservers' group
+37
+38 #[dbservers]
+39 #
+40 #db01.intranet.mydomain.net
+41 #db02.intranet.mydomain.net
+42 #10.25.1.56
+24 [elk]
+25 10.1.0.4 ansible_python_interpreter=/usr/bin/python3
+26 #alpha.example.org
+27 #beta.example.org
+28 #192.168.1.100
+29 #192.168.1.110
+30
+31 # If you have multiple hosts following a pattern you can specify
+32 # them like this:
+33
+34 #www[001:006].example.com
+35
+36 # Ex 3: A collection of database servers in the 'dbservers' group
+37
+38 #[dbservers]
+39 #
+40 #db01.intranet.mydomain.net
+41 #db02.intranet.mydomain.net
+42 #10.25.1.56
+43 #10.25.1.57
+44
+45 # Here's another example of host ranges, this time there are no
+46 # leading 0s:
+47
+48 #db-[99:101]-node.example.com
+49
+50                                               [ Line numbering enabled ]
