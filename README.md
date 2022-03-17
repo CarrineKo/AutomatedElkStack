@@ -117,6 +117,8 @@ SSH into the control node and follow the steps below:
 - Run the playbook, and navigate to Kibana to check that the installation worked as expected.
 
 		http://[your.VM.IP]:5601/app/kibana. 
+		
+https://github.com/CarrineKo/AutomatedElkStack/blob/Screenshots/Day%201%20Kibana%20Capture.PNG
 
 ##CHECKLIST
 - filebeat-playbook.yml is the playbook and it gets copied to /etc/ansible/roles/filebeat-playbook.yml
