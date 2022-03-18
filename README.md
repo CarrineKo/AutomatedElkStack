@@ -6,7 +6,7 @@ https://drive.google.com/file/d/1xDhP-pkR8BKyU0tHd9b5kYslkwVATuMt/view?usp=shari
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook file may be used to install only certain pieces of it, such as Filebeat.
 
-  - _TODO: Enter the playbook file._
+  -https://github.com/CarrineKo/AutomatedElkStack/blob/Ansible/Pentest.yml
 
 This document contains the following details:
 - Description of the Topology
@@ -105,6 +105,9 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 - Copy the filebeat configuration file to /etc/ansible/filebeat-config.yml.
+
+https://github.com/CarrineKo/AutomatedElkStack/blob/Ansible/filebeat-config.yml
+
 - Update the filebeat-config.yml file to include the IP address of the ELK VM.
 
 		output.elasticsearch:
@@ -141,6 +144,8 @@ https://github.com/CarrineKo/AutomatedElkStack/blob/Screenshots/Verify
   		  hosts: FBServers
   		  become: true
   		  tasks:
+		  
+https://github.com/CarrineKo/AutomatedElkStack/blob/Ansible/filebeat-playbook.yml
 		
 - In order to check that the ELK server is running, navigate to:
 	- http://[your.VM.IP]:5601/app/kibana
@@ -175,12 +180,13 @@ _##**Bonus Commands**
 	- nano /etc/ansible/hosts
 
 https://github.com/CarrineKo/AutomatedElkStack/blob/Screenshots/Ansible
+https://github.com/CarrineKo/AutomatedElkStack/blob/Ansible/Ansible%20Hosts%20Config%20with%20Filebeat.txt
 
 - Edit configuration files:
 		
-	- nano /etc/ansible/ansible.cfg
-	- nano /etc/ansible/filebeat-config.yml
-	- nano /etc/ansible/metricbeat-cofig.yml
+	- nano /etc/ansible/ansible.cfg - https://github.com/CarrineKo/AutomatedElkStack/blob/Ansible/ansible.cfg
+	- nano /etc/ansible/filebeat-config.yml - https://github.com/CarrineKo/AutomatedElkStack/blob/Ansible/filebeat-config.yml
+	- nano /etc/ansible/metricbeat-cofig.yml - https://github.com/CarrineKo/AutomatedElkStack/blob/Ansible/metricbeat-config.yml
 
 - Run the playbooks:
 	
@@ -188,3 +194,4 @@ https://github.com/CarrineKo/AutomatedElkStack/blob/Screenshots/Ansible
 	- ansible-playbook /etc/ansible/roles/metricbeat-playbook.yml
 	- ansible-playbook /etc/ansible/install-elk.yml
 	- ansible-playbook /etc/ansible/pentest.yml
+
