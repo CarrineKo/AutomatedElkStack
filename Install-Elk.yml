@@ -1,6 +1,6 @@
  1 ---
  2 - name: Config Web VM with Docker
- 3   hosts: webservers
+ 3   hosts: elk
  4   become: true
  5   tasks:
  6     - name: docker.io
